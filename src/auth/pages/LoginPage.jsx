@@ -4,19 +4,21 @@ import { AuthContex } from "../contex/AuthContex";
 
 export const LoginPage = () => {
 
- const { login } = useContext ( AuthContex )
- 
-const navigate = useNavigate()
+  const { login } = useContext(AuthContex)
 
-const onLogin = () => {
+  const navigate = useNavigate()
 
-login ( 'William Benavides'); 
+  const onLogin = () => {
+
+const lastPath = localStorage.getItem('lastPath') || '/'
+
+    login('William Benavides');
 
 
-navigate( "/", {
-replace: true,
-})
-}
+    navigate(lastPath, {
+      replace: true,
+    })
+  }
 
   return (
     <div className="container mt-5">
@@ -24,11 +26,11 @@ replace: true,
       <hr />
 
       <button className="btn btn-primary"
-      onClick={ onLogin}
+        onClick={onLogin}
       >
-        
+
         Login
-        </button>
+      </button>
     </div>
   );
 };

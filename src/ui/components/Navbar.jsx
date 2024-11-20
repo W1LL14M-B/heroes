@@ -4,12 +4,13 @@ import { useContext } from "react";
 
 export const Navbar = () => {
 
-const {user } = useContext(AuthContex);
+const {user,logout } = useContext(AuthContex);
 console.log(user)
 
   const navigate = useNavigate();
 
   const onLogout = () => {
+    logout();
     navigate("/login", {
       replace: true,
     });
@@ -48,6 +49,7 @@ console.log(user)
           >
             Search
           </NavLink>
+      
         </div>
       </div>
 
